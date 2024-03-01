@@ -3,11 +3,15 @@ const app = express(); //Creates an instance of the express module
 const port = 3000;
 
 //Use template engine
-app.set("view engine", "pug");
+app.set("view engine", "ejs");
 
 //Creates a Root Route
 app.get("/", (req, res) => {
-  res.render("index", { title: "Hey", message: "Hello there!" });
+  res.render("pages/index");
+});
+
+app.get("/about", (req, res) => {
+  res.render("pages/about");
 });
 
 app.listen(port, () => {
